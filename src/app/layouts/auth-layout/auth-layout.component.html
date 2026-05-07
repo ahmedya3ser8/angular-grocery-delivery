@@ -1,6 +1,14 @@
-<section class="flex h-screen">
-  <div class="">auth info</div>
-  <main>
+<section class="flex min-h-screen">
+  <div class="hidden lg:flex lg:justify-center lg:items-center lg:w-1/2 bg-primary relative overflow-hidden">
+    <img src="/images/auth.jpg" class="absolute inset-0 w-full h-full object-cover bg-center opacity-10" alt="auth background" />
+    <div class="relative z-10 text-center space-y-4">
+      <h2 class="font-semibold text-white text-4xl"> Welcome back to Instacart </h2>
+      <p class="text-white/70 text-xl max-w-sm font-dm-serif">
+        Fresh groceries and organic produce, delivered to your doorstep.
+      </p>
+    </div>
+  </div>
+  <main class="w-full lg:w-1/2">
     <router-outlet></router-outlet>
   </main>
 </section>

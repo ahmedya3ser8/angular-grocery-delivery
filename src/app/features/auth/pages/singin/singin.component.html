@@ -1,1 +1,41 @@
-<p>singin works!</p>
+<section class="flex justify-center items-center h-full">
+  <div class="w-full max-w-md space-y-8">
+
+    <div class="content text-center">
+
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <ng-icon class="text-3xl" name="lucideBike" />
+        <span class="text-[#1B3022] text-2xl font-semibold"> Instacart </span>
+      </div>
+
+      <h2 class="text-[#1B3022] font-semibold text-2xl mb-2">
+        Sign in to your account
+      </h2>
+
+      <div class="flex items-center justify-center gap-2">
+        <p class="text-[#6B7280] text-sm"> Don't have an account? </p>
+        <a routerLink="/auth/singup" class="text-[#FF6900] text-sm font-semibold"> Create one </a>
+      </div>
+
+    </div>
+
+    <form class="flex flex-col gap-5">
+
+      <div class="space-y-2">
+        <label for="email" class="block text-sm text-[#1B3022]"> Email Address </label>
+        <input type="email" id="email" placeholder="example@gmail.com" class="bg-white w-full border border-[#E5E7EB] rounded-xl py-3 px-4 outline-primary" />
+      </div>
+
+      <div class="space-y-2">
+        <label for="password" class="block text-sm text-[#1B3022]"> Password </label>
+        <input type="password" id="password" placeholder="*********" class="bg-white w-full border border-[#E5E7EB] rounded-xl py-3 px-4 outline-primary" />
+      </div>
+
+      <button type="submit" class="bg-green-950 text-white rounded-xl p-3 font-semibold cursor-pointer transition-colors hover:bg-green-900">
+        Sign In
+      </button>
+
+    </form>
+
+  </div>
+</section>
