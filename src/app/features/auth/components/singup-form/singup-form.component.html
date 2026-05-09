@@ -1,0 +1,44 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()" class="flex flex-col gap-5">
+
+  <app-input
+    [id]="'name'"
+    [label]="'Name'"
+    [placeholder]="'Your Name'"
+    [control]="form.get('name')"
+    formControlName="name"
+    [errors]="{
+      'required': 'name is required'
+    }"
+  />
+
+  <app-input
+    [id]="'email'"
+    [type]="'email'"
+    [label]="'Email Address'"
+    [placeholder]="'example@gmail.com'"
+    [control]="form.get('email')"
+    formControlName="email"
+    [errors]="{
+      'required': 'email is required',
+      'email': 'invalid email'
+    }"
+  />
+
+  <app-input
+    [id]="'password'"
+    [type]="'password'"
+    [label]="'Password'"
+    [placeholder]="'********'"
+    [control]="form.get('password')"
+    formControlName="password"
+    [errors]="{
+      'required': 'password is required',
+      'pattern': 'password must start with uppercase and be at least 8 characters'
+    }"
+  />
+
+  <button type="submit" class="btn-primary">
+    Sign Up
+  </button>
+
+</form>

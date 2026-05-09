@@ -1,46 +1,14 @@
 <section class="flex justify-center items-center h-full">
-  <div class="w-full max-w-md space-y-8">
+  <div class="w-full max-w-md flex flex-col gap-8 p-6">
 
-    <div class="content text-center">
+    <app-auth-header
+      [description]="'Sign up for an account'"
+      [subText]="'Already have an account?'"
+      [linkText]="'Sign in'"
+      [link]="'/auth/singin'"
+    />
 
-      <div class="flex items-center justify-center gap-2 mb-4">
-        <ng-icon class="text-3xl" name="lucideBike" />
-        <span class="text-[#1B3022] text-2xl font-semibold"> Instacart </span>
-      </div>
-
-      <h2 class="text-[#1B3022] font-semibold text-2xl mb-2">
-        Sign up for an account
-      </h2>
-
-      <div class="flex items-center justify-center gap-2">
-        <p class="text-[#6B7280] text-sm"> Already have an account? </p>
-        <a routerLink="/auth/singin" class="text-[#FF6900] text-sm font-semibold"> Sign in </a>
-      </div>
-
-    </div>
-
-    <form class="flex flex-col gap-5">
-
-      <div class="space-y-2">
-        <label for="name" class="block text-sm text-[#1B3022]"> Name </label>
-        <input type="text" id="name" placeholder="Your Name" class="bg-white w-full border border-[#E5E7EB] rounded-xl py-3 px-4 outline-primary" />
-      </div>
-
-      <div class="space-y-2">
-        <label for="email" class="block text-sm text-[#1B3022]"> Email Address </label>
-        <input type="email" id="email" placeholder="example@gmail.com" class="bg-white w-full border border-[#E5E7EB] rounded-xl py-3 px-4 outline-primary" />
-      </div>
-
-      <div class="space-y-2">
-        <label for="password" class="block text-sm text-[#1B3022]"> Password </label>
-        <input type="password" id="password" placeholder="*********" class="bg-white w-full border border-[#E5E7EB] rounded-xl py-3 px-4 outline-primary" />
-      </div>
-
-      <button type="submit" class="bg-green-950 text-white rounded-xl p-3 font-semibold cursor-pointer transition-colors hover:bg-green-900">
-        Sign Up
-      </button>
-
-    </form>
+    <app-singup-form />
 
   </div>
 </section>

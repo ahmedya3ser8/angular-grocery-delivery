@@ -1,0 +1,25 @@
+<div class="space-y-2">
+
+  <label [for]="id()" class="label"> {{ label() }} </label>
+
+  <input
+    [type]="type()"
+    [id]="id()"
+    [value]="value"
+    [placeholder]="placeholder()"
+    (input)="onChange($any($event.target).value)"
+    (blur)="onTouched()"
+    class="input"
+  />
+
+</div>
+
+@if (control()?.touched && control()?.errors) {
+  @for (key of objectKeys; track $index) {
+    @if (control()?.getError(key)) {
+      <p class="text-red-500 text-sm lowercase mt-2">
+        {{ errors()[key] }}
+      </p>
+    }
+  }
+}

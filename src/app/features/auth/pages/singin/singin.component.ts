@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 
-import { NgIcon } from '@ng-icons/core';
+import { AuthHeaderComponent } from "../../components/auth-header/auth-header.component";
+import { SinginFormComponent } from "../../components/singin-form/singin-form.component";
 
 @Component({
   selector: 'app-singin',
-  imports: [NgIcon, RouterLink],
+  imports: [AuthHeaderComponent, SinginFormComponent],
   templateUrl: './singin.component.html',
   styleUrl: './singin.component.scss',
 })

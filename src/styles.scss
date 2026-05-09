@@ -6,7 +6,20 @@
   --font-dm-serif: "DM Serif Display", serif;
 }
 
+@layer components {
+  .input {
+    @apply bg-white w-full border border-[#E5E7EB] rounded-xl py-3 px-4 outline-primary;
+  }
+  .label {
+    @apply block text-sm text-[#1B3022];
+  }
+  .btn-primary {
+    @apply bg-green-950 text-white rounded-xl p-3 font-semibold cursor-pointer transition-colors hover:bg-green-900;
+  }
+}
+
 body {
   font-family: "Outfit", sans-serif;
   background-color: var(--color-secondary);
+  color: #1b3022;
 }

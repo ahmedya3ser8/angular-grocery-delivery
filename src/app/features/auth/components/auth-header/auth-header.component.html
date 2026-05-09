@@ -1,0 +1,21 @@
+<div class="content text-center">
+
+  <div class="flex items-center justify-center gap-2 mb-4">
+    <ng-icon class="text-3xl" name="lucideBike" />
+    <span class="text-[#1B3022] text-2xl font-semibold"> Instacart </span>
+  </div>
+
+  <h2 class="text-[#1B3022] font-semibold text-2xl mb-2">
+    {{ description() }}
+  </h2>
+
+  <div class="flex items-center justify-center gap-2">
+    <p class="text-[#6B7280] text-sm">
+      {{ subText() }}
+    </p>
+    <a [routerLink]="link()" class="text-[#FF6900] text-sm font-semibold">
+      {{ linkText() }}
+    </a>
+  </div>
+
+</div>

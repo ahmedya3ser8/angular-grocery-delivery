@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()" class="flex flex-col gap-5">
+
+  <app-input
+    [id]="'email'"
+    [type]="'email'"
+    [label]="'Email Address'"
+    [placeholder]="'example@gmail.com'"
+    [control]="form.get('email')"
+    formControlName="email"
+    [errors]="{
+      'required': 'email is required',
+      'email': 'invalid email'
+    }"
+  />
+
+  <app-input
+    [id]="'password'"
+    [type]="'password'"
+    [label]="'Password'"
+    [placeholder]="'********'"
+    [control]="form.get('password')"
+    formControlName="password"
+    [errors]="{
+      'required': 'password is required'
+    }"
+  />
+
+  <button type="submit" class="btn-primary">
+    Sign In
+  </button>
+
+</form>
