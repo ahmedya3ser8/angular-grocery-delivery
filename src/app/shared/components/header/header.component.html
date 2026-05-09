@@ -1,1 +1,46 @@
-<p>header works!</p>
+<header class="bg-white border border-[#E5E7EB] py-4">
+  <div class="container">
+    <div class="flex justify-between">
+
+      <div class="flex items-center gap-2">
+        <ng-icon class="text-2xl" name="lucideBike" />
+        <span class="text-[#1B3022] text-[22px] font-medium"> Instacart </span>
+      </div>
+
+      <nav class="flex items-center gap-10">
+
+        <ul class="flex items-center gap-6">
+          <li>
+            <a routerLink="/home" routerLinkActive="transition-colors text-[#F97316]" class="text-[#52525C]"> Home </a>
+          </li>
+          <li>
+            <a routerLink="/products" routerLinkActive="transition-colors text-[#F97316]" class="text-[#52525C]"> Products </a>
+          </li>
+          <li>
+            <a routerLink="/deals" routerLinkActive="transition-colors text-[#F97316]" class="text-[#52525C]"> Deals </a>
+          </li>
+        </ul>
+
+        <div class="bg-[#FFF7ED] p-3 rounded-2xl flex items-center gap-2 w-md">
+          <ng-icon class="text-base text-[#71717B]" name="lucideSearch" />
+          <input type="search" class="w-full outline-none" placeholder="Search for groceries..." />
+        </div>
+
+      </nav>
+
+      <div class="flex items-center gap-5">
+
+        <div class="size-8 rounded-xl p-2 relative">
+          <ng-icon class="text-2xl" name="lucideShoppingCart" />
+          <span class="size-5 bg-[#F97316] text-white rounded-full text-[10px] flex justify-center items-center absolute -top-2 -right-2"> 2 </span>
+        </div>
+
+        <div class="size-8 bg-[#032E15] text-white rounded-full flex justify-center items-center">
+          A
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</header>

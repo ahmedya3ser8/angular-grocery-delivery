@@ -9,6 +9,11 @@ export const userRoutes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home',
         loadComponent: () => import('./home/pages/home/home.component').then((c) => c.HomeComponent)
       },
       {

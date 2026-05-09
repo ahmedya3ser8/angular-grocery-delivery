@@ -9,7 +9,10 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 
 import { provideIcons } from '@ng-icons/core';
-import { lucideBike } from '@ng-icons/lucide';
+import {
+  lucideBike, lucideSearch, lucideShoppingCart, lucideLeaf,
+  lucideArrowRight, lucideTruck, lucideClock, lucideShieldCheck
+} from '@ng-icons/lucide';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -27,7 +30,14 @@ export const appConfig: ApplicationConfig = {
       }
     }),
     provideIcons({
-      lucideBike
+      lucideBike,
+      lucideSearch,
+      lucideShoppingCart,
+      lucideLeaf,
+      lucideArrowRight,
+      lucideTruck,
+      lucideClock,
+      lucideShieldCheck
     })
   ]
 };
