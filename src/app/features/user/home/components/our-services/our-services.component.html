@@ -1,48 +1,23 @@
 <section>
   <div class="container">
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 bg-white border border-[#E5E7EBCC] p-8 rounded-xl">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-      <div class="flex items-center gap-3">
-        <div class="size-10 bg-[#FAF7F2] rounded-lg flex justify-center items-center">
-          <ng-icon class="text-xl" name="lucideTruck" />
+      @for (item of servicesList(); track item.id) {
+        <div class="flex items-center gap-3 bg-white border border-[#E5E7EBCC] rounded-xl p-6 transition-all hover:shadow-sm">
+          <div class="size-10 bg-[#FAF7F2] rounded-lg flex justify-center items-center">
+            <ng-icon class="text-xl" [name]="item.icon" />
+          </div>
+          <div class="space-y-1">
+            <h3 class="text-[#1B3022] text-xs font-semibold">
+              {{ item.title }}
+            </h3>
+            <p class="text-xs text-[#6B7280]">
+              {{ item.subTitle }}
+            </p>
+          </div>
         </div>
-        <div class="space-y-1">
-          <h3 class="text-[#1B3022] text-xs font-semibold"> Free Delivery </h3>
-          <p class="text-xs text-[#6B7280]"> Orders over $20 </p>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <div class="size-10 bg-[#FAF7F2] rounded-lg flex justify-center items-center">
-          <ng-icon class="text-xl" name="lucideLeaf" />
-        </div>
-        <div class="space-y-1">
-          <h3 class="text-[#1B3022] text-xs font-semibold"> 100% Organic </h3>
-          <p class="text-xs text-[#6B7280]"> Certified products </p>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <div class="size-10 bg-[#FAF7F2] rounded-lg flex justify-center items-center">
-          <ng-icon class="text-xl" name="lucideClock" />
-        </div>
-        <div class="space-y-1">
-          <h3 class="text-[#1B3022] text-xs font-semibold"> Same Day </h3>
-          <p class="text-xs text-[#6B7280]"> Express delivery </p>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <div class="size-10 bg-[#FAF7F2] rounded-lg flex justify-center items-center">
-          <ng-icon class="text-xl" name="lucideShieldCheck" />
-        </div>
-        <div class="space-y-1">
-          <h3 class="text-[#1B3022] text-xs font-semibold"> Secure Pay </h3>
-          <p class="text-xs text-[#6B7280]"> Safe checkout </p>
-        </div>
-      </div>
-
+      }
     </div>
 
   </div>

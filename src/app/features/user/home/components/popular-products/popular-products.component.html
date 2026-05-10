@@ -1,0 +1,59 @@
+<section class="py-10">
+  <div class="container space-y-8">
+
+    <div class="flex justify-between items-center">
+
+      <div class="space-y-2">
+        <h2 class="text-2xl font-semibold text-[#1B3022]"> Popular Products </h2>
+        <p class="text-sm text-[#6B7280]"> Top-rated products this season </p>
+      </div>
+
+      <a routerLink="/products" class="flex items-center gap-1 text-[#F97316] text-sm font-semibold">
+        View All
+        <ng-icon class="text-base" name="lucideArrowRight" />
+      </a>
+
+    </div>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+      @for (product of productsList(); track product.id) {
+        <div class="bg-white rounded-2xl shadow-sm group transition-all hover:shadow-md">
+
+          <div class="relative overflow-hidden p-3">
+            <span class="bg-[#F97316] text-white py-1.5 px-3 rounded-full uppercase text-[10px] font-semibold">
+              {{ product.discount }}
+            </span>
+            <img [src]="product.image" class="w-full h-full aspect-square transition-all duration-300 group-hover:scale-105" [alt]="product.title" />
+          </div>
+
+          <div class="space-y-1.5 p-3.5">
+
+            <h3 class="text-sm text-[#3F3F46]">
+              {{ product.title }}
+            </h3>
+
+            <div class="flex items-center gap-1">
+              <ng-icon class="text-[#F59E0B]! text-xs" name="lucideStar" />
+              <span class="text-xs font-medium text-[#1B3022]"> {{ product.ratingAvg }} </span>
+              <span class="text-[#6B7280] text-xs"> ({{ product.review }}) </span>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <div class="flex items-center gap-1">
+                <span class="text-[#3F3F46] font-medium"> ${{ product.price }} </span>
+                <span class="text-xs text-[#6B7280]"> {{ product.unit }} </span>
+                <span class="text-xs text-[#6B7280]"> ${{ product.oldPrice }} </span>
+              </div>
+              <button class="size-8 rounded-full bg-[#F97316] flex justify-center items-center text-white cursor-pointer">
+                <ng-icon class="text-base" name="lucidePlus" />
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

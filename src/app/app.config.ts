@@ -11,7 +11,9 @@ import Aura from '@primeuix/themes/aura';
 import { provideIcons } from '@ng-icons/core';
 import {
   lucideBike, lucideSearch, lucideShoppingCart, lucideLeaf,
-  lucideArrowRight, lucideTruck, lucideClock, lucideShieldCheck
+  lucideArrowRight, lucideTruck, lucideClock, lucideShieldCheck,
+  lucideStar, lucidePlus, lucideMail, lucideFacebook,
+  lucideX, lucideInstagram, lucideMapPin, lucidePhone
 } from '@ng-icons/lucide';
 
 export const appConfig: ApplicationConfig = {
@@ -30,14 +32,10 @@ export const appConfig: ApplicationConfig = {
       }
     }),
     provideIcons({
-      lucideBike,
-      lucideSearch,
-      lucideShoppingCart,
-      lucideLeaf,
-      lucideArrowRight,
-      lucideTruck,
-      lucideClock,
-      lucideShieldCheck
+      lucideBike, lucideSearch, lucideShoppingCart, lucideLeaf,
+      lucideArrowRight, lucideTruck, lucideClock, lucideShieldCheck,
+      lucideStar, lucidePlus, lucideMail, lucideFacebook,
+      lucideX, lucideInstagram, lucideMapPin, lucidePhone
     })
   ]
 };
