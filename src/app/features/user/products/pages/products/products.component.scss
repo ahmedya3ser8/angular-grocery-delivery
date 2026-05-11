@@ -1,0 +1,24 @@
+::ng-deep .p-select-option.p-select-option-selected.p-focus {
+  background-color: var(--color-orange-100) !important;
+  color: var(--color-orange-500) !important;
+}
+
+::ng-deep .p-select-option:not(.p-select-option-selected):not(.p-disabled).p-focus {
+  background-color: var(--color-orange-100) !important;
+  color: var(--color-orange-500) !important;
+}
+
+::ng-deep .p-select-option.p-select-option-selected {
+  background-color: var(--color-orange-100) !important;
+  color: var(--color-orange-500) !important;
+}
+
+::ng-deep .p-select-label {
+  font-size: 14px !important;
+  color: #1B3022 !important;
+}
+
+::ng-deep .p-select-option {
+  font-size: 14px !important;
+  color: #1B3022 !important;
+}

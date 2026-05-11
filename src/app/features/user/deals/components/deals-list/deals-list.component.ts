@@ -1,15 +1,15 @@
 import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 
-import { ProductCardComponent } from "../../../../../shared/components";
 import { Product } from '../../../products/models/product';
+import { ProductCardComponent } from "../../../../../shared/components";
 
 @Component({
-  selector: 'app-deals-products',
+  selector: 'app-deals-list',
   imports: [ProductCardComponent],
-  templateUrl: './deals-products.component.html',
-  styleUrl: './deals-products.component.scss',
+  templateUrl: './deals-list.component.html',
+  styleUrl: './deals-list.component.scss',
 })
-export class DealsProductsComponent implements OnInit {
+export class DealsListComponent implements OnInit {
   productsList: WritableSignal<Product[]> = signal([]);
 
   ngOnInit(): void {

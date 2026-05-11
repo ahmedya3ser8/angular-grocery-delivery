@@ -1,0 +1,26 @@
+<div class="flex-1 space-y-6">
+
+  <div class="flex justify-between items-center">
+
+    <div class="space-y-1">
+      <h1 class="text-2xl font-semibold text-[#1B3022]"> All Products </h1>
+      <p class="text-[#6B7280] text-sm"> 27 products found </p>
+    </div>
+
+    <p-select
+      [options]="sortOptions()"
+      [ngModel]="selectedSort()"
+      optionLabel="label"
+      optionValue="value"
+      class="w-45"
+    />
+
+  </div>
+
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    @for (product of productsList(); track product.id) {
+      <app-product-card [product]="product" />
+    }
+  </div>
+
+</div>

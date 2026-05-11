@@ -18,7 +18,7 @@ export const userRoutes: Routes = [
       },
       {
         path: 'products',
-        loadComponent: () => import('./products/pages/product-list/product-list.component').then((c) => c.ProductListComponent)
+        loadComponent: () => import('./products/pages/products/products.component').then((c) => c.ProductsComponent)
       },
       {
         path: 'products/:id',
@@ -26,7 +26,7 @@ export const userRoutes: Routes = [
       },
       {
         path: 'deals',
-        loadComponent: () => import('./deals/pages/deal-list/deal-list.component').then((c) => c.DealListComponent)
+        loadComponent: () => import('./deals/pages/deals/deals.component').then((c) => c.DealsComponent)
       },
       {
         path: 'orders',

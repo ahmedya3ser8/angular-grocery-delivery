@@ -1,11 +1,12 @@
 <header class="bg-white border border-[#E5E7EB] py-4">
   <div class="container">
+
     <div class="flex justify-between">
 
-      <div class="flex items-center gap-2">
+      <a routerLink="/" class="flex items-center gap-2">
         <ng-icon class="text-2xl" name="lucideBike" />
         <span class="text-[#1B3022] text-[22px] font-medium"> Instacart </span>
-      </div>
+      </a>
 
       <nav class="flex items-center gap-10">
 
@@ -30,7 +31,7 @@
 
       <div class="flex items-center gap-5">
 
-        <div class="size-8 rounded-xl p-2 relative">
+        <div (click)="showDrawer()" class="size-8 rounded-xl p-2 relative cursor-pointer">
           <ng-icon class="text-2xl" name="lucideShoppingCart" />
           <span class="size-5 bg-[#F97316] text-white rounded-full text-[10px] flex justify-center items-center absolute -top-2 -right-2"> 2 </span>
         </div>
@@ -42,5 +43,101 @@
       </div>
 
     </div>
+
   </div>
 </header>
+
+<p-drawer [(visible)]="visible" styleClass="w-md!" position="right">
+
+  <ng-template #header>
+    <div class="flex items-center gap-2">
+      <ng-icon class="text-xl" name="lucideShoppingBag" />
+      <h2 class="text-lg font-medium"> Your Cart </h2>
+      <span class="bg-secondary py-1 px-3 rounded-full text-xs font-semibold"> 1 items </span>
+    </div>
+  </ng-template>
+
+  <div class="space-y-4">
+
+    <div class="bg-[#FCFAF7] rounded-xl p-3 flex gap-3">
+      <img src="/images/products/product-02.png" class="size-16 object-cover" alt="product" />
+      <div class="flex-1">
+        <h3 class="text-sm font-semibold truncate"> Knorr Cup Soup 70g </h3>
+        <p class="text-[#6b7280] text-xs">
+          $30.00 / 70g
+        </p>
+        <div class="flex justify-between items-center mt-2">
+          <div class="flex items-center gap-1.5">
+            <button class="size-7 bg-white border border-[#E5E7EB] cursor-pointer rounded-lg flex justify-center items-center">
+              <ng-icon class="text-sm" name="lucideMinus" />
+            </button>
+            <span class="text-sm font-semibold w-6 text-center"> 2 </span>
+            <button class="size-7 bg-white border border-[#E5E7EB] cursor-pointer rounded-lg flex justify-center items-center">
+              <ng-icon class="text-sm" name="lucidePlus" />
+            </button>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-semibold"> $60.00 </span>
+            <button class="text-[#6b7280] p-1 transition-colors hover:text-red-500 cursor-pointer">
+              <ng-icon name="lucideTrash2" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-[#FCFAF7] rounded-xl p-3 flex gap-3">
+      <img src="/images/products/product-02.png" class="size-16 object-cover" alt="product" />
+      <div class="flex-1">
+        <h3 class="text-sm font-semibold truncate"> Knorr Cup Soup 70g </h3>
+        <p class="text-[#6b7280] text-xs">
+          $30.00 / 70g
+        </p>
+        <div class="flex justify-between items-center mt-2">
+          <div class="flex items-center gap-1.5">
+            <button class="size-7 bg-white border border-[#E5E7EB] cursor-pointer rounded-lg flex justify-center items-center">
+              <ng-icon class="text-sm" name="lucideMinus" />
+            </button>
+            <span class="text-sm font-semibold w-6 text-center"> 2 </span>
+            <button class="size-7 bg-white border border-[#E5E7EB] cursor-pointer rounded-lg flex justify-center items-center">
+              <ng-icon class="text-sm" name="lucidePlus" />
+            </button>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-semibold"> $60.00 </span>
+            <button class="text-[#6b7280] p-1 transition-colors hover:text-red-500 cursor-pointer">
+              <ng-icon name="lucideTrash2" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <ng-template #footer>
+
+    <div class="space-y-3 pb-3">
+      <div class="flex justify-between">
+        <span class="text-[#6b7280] text-sm"> Subtotal </span>
+        <span class="font-medium text-sm"> $60.00 </span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-[#6b7280] text-sm"> Delivery </span>
+        <span class="font-medium text-[#22c55e] text-sm"> Free </span>
+      </div>
+    </div>
+
+    <div class="flex justify-between border-t border-[#e5e7eb] pt-3 mb-3">
+      <span class="font-semibold"> Total </span>
+      <span class="font-semibold"> $60.00 </span>
+    </div>
+
+    <button class="w-full bg-orange-400 text-white font-semibold p-3 rounded-xl flex justify-center items-center gap-2 cursor-pointer transition hover:bg-orange-500">
+      Proceed to Checkout
+      <ng-icon name="lucideArrowRight" />
+    </button>
+
+  </ng-template>
+
+</p-drawer>

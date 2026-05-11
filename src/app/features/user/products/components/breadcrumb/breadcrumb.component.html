@@ -1,0 +1,16 @@
+<div class="flex items-center gap-2">
+  <ng-icon name="lucideHouse" />
+  @for (item of items(); track $index) {
+    <span> / </span>
+    @if (item.url) {
+      <a [routerLink]="item.url" class="text-[#6B7280] text-sm">
+        {{ item.label }}
+      </a>
+    }
+    @else {
+      <span class="text-[#1B3022] text-sm font-medium">
+        {{ item.label }}
+      </span>
+    }
+  }
+</div>

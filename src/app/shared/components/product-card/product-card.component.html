@@ -20,7 +20,7 @@
     </h3>
 
     <div class="flex items-center gap-1">
-      <ng-icon class="text-[#F59E0B]! text-xs" name="lucideStar" />
+      <ng-icon class="star-icon text-xs" name="lucideStar" />
       <span class="text-xs font-medium text-[#1B3022]"> {{ product().ratingAvg }} </span>
       <span class="text-[#6B7280] text-xs"> ({{ product().review }}) </span>
     </div>
@@ -29,7 +29,7 @@
       <div class="flex items-center gap-1">
         <span class="text-[#3F3F46] font-medium"> ${{ product().price }} </span>
         <span class="text-xs text-[#6B7280]"> {{ product().unit }} </span>
-        <span class="text-xs text-[#6B7280]"> ${{ product().oldPrice }} </span>
+        <span class="text-xs text-[#6B7280] line-through"> ${{ product().oldPrice }} </span>
       </div>
       <button class="size-8 rounded-full bg-[#F97316] flex justify-center items-center text-white cursor-pointer">
         <ng-icon class="text-base" name="lucidePlus" />
