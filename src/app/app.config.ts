@@ -13,7 +13,8 @@ import {
   lucideBike, lucideSearch, lucideShoppingCart, lucideLeaf,
   lucideArrowRight, lucideTruck, lucideClock, lucideShieldCheck,
   lucideStar, lucidePlus, lucideMail, lucideFacebook,
-  lucideX, lucideInstagram, lucideMapPin, lucidePhone
+  lucideX, lucideInstagram, lucideMapPin, lucidePhone,
+  lucideZap
 } from '@ng-icons/lucide';
 
 export const appConfig: ApplicationConfig = {
@@ -35,7 +36,8 @@ export const appConfig: ApplicationConfig = {
       lucideBike, lucideSearch, lucideShoppingCart, lucideLeaf,
       lucideArrowRight, lucideTruck, lucideClock, lucideShieldCheck,
       lucideStar, lucidePlus, lucideMail, lucideFacebook,
-      lucideX, lucideInstagram, lucideMapPin, lucidePhone
+      lucideX, lucideInstagram, lucideMapPin, lucidePhone,
+      lucideZap
     })
   ]
 };

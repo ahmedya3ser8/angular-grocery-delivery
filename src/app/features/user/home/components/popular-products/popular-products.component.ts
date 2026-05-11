@@ -2,22 +2,12 @@ import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { RouterLink } from "@angular/router";
 
 import { NgIcon } from '@ng-icons/core';
-
-interface Product {
-  id: number;
-  image: string;
-  title: string;
-  ratingAvg: number;
-  review: number;
-  unit: string;
-  discount: string;
-  price: number;
-  oldPrice: number;
-}
+import { Product } from '../../../products/models/product';
+import { ProductCardComponent } from "../../../../../shared/components";
 
 @Component({
   selector: 'app-popular-products',
-  imports: [NgIcon, RouterLink],
+  imports: [NgIcon, RouterLink, ProductCardComponent],
   templateUrl: './popular-products.component.html',
   styleUrl: './popular-products.component.scss',
 })
