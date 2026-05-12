@@ -1,0 +1,34 @@
+<div class="flex flex-col md:flex-row items-center border-b border-[#E5E7EB] pb-6 md:pb-8">
+
+  <div class="md:w-sm flex flex-col gap-2 items-center">
+    <h3 class="text-5xl font-semibold text-[#1B3022]"> 4.5 </h3>
+    <div class="flex items-center gap-1">
+      <ng-icon class="star-icon-active" name="lucideStar" />
+      <ng-icon class="star-icon-active" name="lucideStar" />
+      <ng-icon class="star-icon-active" name="lucideStar" />
+      <ng-icon class="star-icon-active" name="lucideStar" />
+      <ng-icon class="star-icon-active" name="lucideStar" />
+    </div>
+    <span class="text-sm text-[#52525C]"> 12 reviews </span>
+  </div>
+
+  <div class="flex-1 space-y-2">
+    @for (item of ratingStats(); track item.id) {
+      <div class="flex items-center gap-3">
+
+        <div class="text-sm text-[#52525C] flex items-center gap-1">
+          {{ item.stars }}
+          <ng-icon class="text-[#52525C]!" name="lucideStar" />
+        </div>
+
+        <div class="flex-1 h-2.5 bg-[#E5E7EB] rounded-2xl">
+          <span class="bg-[#F59E0B] block h-full rounded-2xl" [style.width]="item.percetage"></span>
+        </div>
+
+        <span class="text-xs text-[#52525C]"> {{ item.count }} </span>
+
+      </div>
+    }
+  </div>
+
+</div>
