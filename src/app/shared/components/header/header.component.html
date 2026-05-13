@@ -36,8 +36,50 @@
           <span class="size-5 bg-[#F97316] text-white rounded-full text-[10px] flex justify-center items-center absolute -top-2 -right-2"> 2 </span>
         </div>
 
-        <div class="size-8 bg-[#032E15] text-white rounded-full flex justify-center items-center">
-          A
+        <div class="relative" #popoverContainer>
+          <button (click)="togglePopover()" class="flex items-center gap-2 cursor-pointer">
+            <div class="size-8 bg-[#032E15] text-white rounded-full flex justify-center items-center">
+              A
+            </div>
+            <ng-icon name="lucideChevronDown" />
+          </button>
+
+          @if (isOpen()) {
+            <div class="absolute z-100 w-55 right-0 mt-4 bg-white border border-[#e5e7eb] rounded-lg shadow-md">
+              <!-- top -->
+              <div class="border-b border-[#e5e7eb] py-2 px-4">
+                <p class="text-sm font-medium"> ahmed yasser </p>
+                <p class="text-xs"> ay@gmail.com </p>
+              </div>
+              <!-- content -->
+              <ul>
+                <li>
+                  <a routerLink="/orders" (click)="togglePopover()" class="flex items-center gap-3 px-4 py-2.5 text-[#71717b] text-sm transition-colors hover:bg-[#FFF7ED]">
+                    <ng-icon name="lucidePackage" />
+                    My Orders
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="/addresses" (click)="togglePopover()" class="flex items-center gap-3 px-4 py-2.5 text-[#71717b] text-sm transition-colors hover:bg-[#FFF7ED]">
+                    <ng-icon name="lucideMapPin" />
+                    Addressess
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="/admin" (click)="togglePopover()" class="flex items-center gap-3 px-4 py-2.5 text-[#ea580c] text-sm transition-colors hover:bg-[#FFF7ED]">
+                    <ng-icon name="lucideShield" />
+                    Admin Panel
+                  </a>
+                </li>
+              </ul>
+              <!-- footer -->
+              <button class="w-full border-t border-[#e5e7eb] text-[#ea580c] py-2 px-4 flex items-center gap-3 transition-colors hover:bg-[#FFF7ED]">
+                <ng-icon name="lucideLogOut" />
+                Logout
+              </button>
+            </div>
+          }
+
         </div>
 
       </div>
