@@ -1,1 +1,88 @@
-<p>order-list works!</p>
+<section class="py-10">
+  <div class="container space-y-6">
+
+    <h1 class="text-2xl text-[#1B3022] font-semibold"> My Orders </h1>
+
+    <div class="flex items-center gap-2">
+      <button class="bg-[#1B3022] text-white py-2 px-4 rounded-xl text-sm font-medium cursor-pointer">
+        All Orders
+      </button>
+      <button class="bg-white text-[#6B7280] py-2 px-4 rounded-xl text-sm font-medium cursor-pointer">
+        Placed
+      </button>
+      <button class="bg-white text-[#6B7280] py-2 px-4 rounded-xl text-sm font-medium cursor-pointer">
+        Out for Delivery
+      </button>
+      <button class="bg-white text-[#6B7280] py-2 px-4 rounded-xl text-sm font-medium cursor-pointer">
+        Delivered
+      </button>
+    </div>
+
+    <div class="flex flex-col gap-5">
+
+      <div class="bg-white p-5 rounded-2xl space-y-4 transition hover:shadow-sm">
+
+        <div class="flex justify-between">
+
+          <div class="space-y-1">
+            <p class="text-sm font-medium text-[#1B3022]"> Order #98D67DAC </p>
+            <div class="text-xs text-[#6B7280] flex items-center gap-2">
+              <ng-icon name="lucideCalendar" />
+              Apr 6, 2026
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="bg-[#DCFCE7] py-2 px-4 rounded-2xl text-[#008236] text-xs font-medium"> Delivered </span>
+            <ng-icon class="text-[#6B7280]" name="lucideChevronRight" />
+          </div>
+
+        </div>
+
+        <div class="flex items-center gap-2">
+          <img src="/images/products/product-01.png" class="size-12 sm:size-16 border border-[#E5E7EB] object-cover rounded-lg" alt="product" />
+          <img src="/images/products/product-02.png" class="size-12 sm:size-16 border border-[#E5E7EB] object-cover rounded-lg" alt="product" />
+        </div>
+
+        <div class="flex justify-between items-center">
+          <span class="text-sm text-[#6B7280]"> 2 items </span>
+          <span class="text-sm font-semibold text-[#1B3022]"> $248.40 </span>
+        </div>
+
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl space-y-4 transition hover:shadow-sm">
+
+        <div class="flex justify-between">
+
+          <div class="space-y-1">
+            <p class="text-sm font-medium text-[#1B3022]"> Order #98D67DAC </p>
+            <div class="text-xs text-[#6B7280] flex items-center gap-2">
+              <ng-icon name="lucideCalendar" />
+              Apr 6, 2026
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="bg-[#F973161A] py-2 px-4 rounded-2xl text-[#F97316] text-xs font-medium"> Delivered </span>
+            <ng-icon class="text-[#6B7280]" name="lucideChevronRight" />
+          </div>
+
+        </div>
+
+        <div class="flex items-center gap-2">
+          <img src="/images/products/product-01.png" class="size-12 sm:size-16 border border-[#E5E7EB] object-cover rounded-lg" alt="product" />
+          <img src="/images/products/product-02.png" class="size-12 sm:size-16 border border-[#E5E7EB] object-cover rounded-lg" alt="product" />
+        </div>
+
+        <div class="flex justify-between items-center">
+          <span class="text-sm text-[#6B7280]"> 2 items </span>
+          <span class="text-sm font-semibold text-[#1B3022]"> $248.40 </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
