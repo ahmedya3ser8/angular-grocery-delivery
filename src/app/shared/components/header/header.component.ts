@@ -26,7 +26,6 @@ export class HeaderComponent {
   }
 
   @HostListener('document:click', ['$event']) closePopover(e: Event) {
-    console.log(e);
     if (this.popoverContainer && !this.popoverContainer.nativeElement.contains(e.target)) {
       this.isOpen.set(false);
     }

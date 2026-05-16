@@ -1,0 +1,78 @@
+<p-dialog
+  [header]="isEditMode() ? 'Edit Address' : 'Add New Address'"
+  [modal]="true"
+  [focusOnShow]="false"
+  [draggable]="false"
+  [(visible)]="visible"
+  (onHide)="closeDialog()"
+  [style]="{ width: '32rem' }"
+>
+  <form [formGroup]="form" (ngSubmit)="submitForm()" class="flex flex-col gap-4">
+    <app-input
+      [id]="'label'"
+      [label]="'Label'"
+      [control]="form.get('labelAddress')"
+      formControlName="labelAddress"
+      [placeholder]="'Home, Work, etc...'"
+      [errors]="{
+        'required': 'Label address is required'
+      }"
+    />
+    <app-input
+      [id]="'streetAddress'"
+      [label]="'Street Address'"
+      [control]="form.get('streetAddress')"
+      formControlName="streetAddress"
+      [placeholder]="'Enter street address'"
+      [errors]="{
+        'required': 'street address is required'
+      }"
+    />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <app-input
+        [id]="'city'"
+        [label]="'City'"
+        [control]="form.get('city')"
+        formControlName="city"
+        [placeholder]="'Enter your city'"
+        [errors]="{
+          'required': 'city is required'
+        }"
+      />
+      <app-input
+        [id]="'state'"
+        [label]="'State'"
+        [control]="form.get('state')"
+        formControlName="state"
+        [placeholder]="'Enter your state'"
+        [errors]="{
+          'required': 'state is required'
+        }"
+      />
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <app-input
+        [id]="'zipCode'"
+        [type]="'number'"
+        [label]="'ZIP Code'"
+        [control]="form.get('zipCode')"
+        formControlName="zipCode"
+        [placeholder]="'Enter ZIP code'"
+        [errors]="{
+          'required': 'zipCode is required'
+        }"
+      />
+      <div class="flex items-center gap-2">
+        <input type="checkbox" formControlName="isDefault" id="isDefault" />
+        <label for="isDefault" class="label cursor-pointer"> Set as default </label>
+      </div>
+    </div>
+    <button type="submit" class="btn-primary">
+      @if(isEditMode()) {
+        Update Address
+      } @else {
+        Save Address
+      }
+    </button>
+  </form>
+</p-dialog>
