@@ -17,7 +17,7 @@ import {
   lucideZap, lucideHouse, lucideArrowLeft, lucideMinus,
   lucideShoppingBag, lucideTrash2, lucideChevronDown,
   lucidePackage, lucideShield, lucideLogOut, lucideCalendar,
-  lucideChevronRight
+  lucideChevronRight, lucideCheck
 } from '@ng-icons/lucide';
 
 export const appConfig: ApplicationConfig = {
@@ -43,7 +43,7 @@ export const appConfig: ApplicationConfig = {
       lucideZap, lucideHouse, lucideArrowLeft, lucideMinus,
       lucideShoppingBag, lucideTrash2, lucideChevronDown,
       lucidePackage, lucideShield, lucideLogOut, lucideCalendar,
-      lucideChevronRight
+      lucideChevronRight, lucideCheck
     })
   ]
 };

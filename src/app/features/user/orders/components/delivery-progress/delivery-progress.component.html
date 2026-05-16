@@ -1,0 +1,39 @@
+<div class="bg-white rounded-2xl p-6 space-y-6">
+
+  <h3 class="text-lg text-[#1B3022] font-semibold">
+    Delivery Progress
+  </h3>
+
+  <div class="space-y-0">
+    @for (step of deliveryStepsList(); track step.id) {
+      <div class="flex gap-4">
+
+        <div class="flex flex-col items-center">
+          <div [ngClass]="{
+            'bg-[#1B3022] text-white': step.completed,
+            'bg-[#FAF7F2] text-[#6B7280]': !step.completed,
+            'ring-4 ring-[#1b302266]': step.active,
+          }" class="size-9 rounded-full flex justify-center items-center">
+            <ng-icon [name]="step.icon" />
+          </div>
+          @if (!$last) {
+            <div class="w-0.5 h-12" [ngClass]="{
+              'bg-[#1B3022]': step.completed,
+              'bg-[#E5E7EB]': !step.completed,
+            }"></div>
+          }
+        </div>
+
+        <div class="space-y-0.5">
+          <h4 class="text-sm text-[#1B3022] font-semibold"> {{ step.title }} </h4>
+          @if(step.date) {
+            <p class="text-xs text-[#6B7280]"> {{ step.date }} </p>
+          }
+        </div>
+
+      </div>
+    }
+
+  </div>
+
+</div>
