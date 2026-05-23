@@ -9,7 +9,7 @@
     formControlName="email"
     [errors]="{
       'required': 'email is required',
-      'email': 'invalid email'
+      'email': 'Please enter a valid email'
     }"
   />
 
@@ -26,7 +26,12 @@
   />
 
   <button type="submit" class="btn-primary">
-    Sign In
+    @if (isLoading()) {
+      <span class="dots">Loading</span>
+    }
+    @else {
+      Sign In
+    }
   </button>
 
 </form>

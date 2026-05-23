@@ -9,15 +9,15 @@ export const authRoutes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'singup',
+        redirectTo: 'signup',
         pathMatch: 'full'
       },
       {
-        path: 'singup',
+        path: 'signup',
         loadComponent: () => import('./pages/singup/singup.component').then((c) => c.SingupComponent)
       },
       {
-        path: 'singin',
+        path: 'signin',
         loadComponent: () => import('./pages/singin/singin.component').then((c) => c.SinginComponent)
       },
     ]

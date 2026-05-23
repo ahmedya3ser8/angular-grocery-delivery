@@ -7,7 +7,9 @@
     [control]="form.get('name')"
     formControlName="name"
     [errors]="{
-      'required': 'name is required'
+      'required': 'name is required',
+      'minlength': 'name must be at least 3 characters',
+      'maxlength': 'name must not exceed 30 characters'
     }"
   />
 
@@ -20,7 +22,7 @@
     formControlName="email"
     [errors]="{
       'required': 'email is required',
-      'email': 'invalid email'
+      'email': 'please enter a valid email'
     }"
   />
 
@@ -33,12 +35,17 @@
     formControlName="password"
     [errors]="{
       'required': 'password is required',
-      'pattern': 'password must start with uppercase and be at least 8 characters'
+      'minlength': 'password must be at least 6 characters'
     }"
   />
 
   <button type="submit" class="btn-primary">
-    Sign Up
+    @if (isLoading()) {
+      <span class="dots">Loading</span>
+    }
+    @else {
+      Sign Up
+    }
   </button>
 
 </form>

@@ -1,1 +1,23 @@
-<p>dashboard works!</p>
+<section class="space-y-6">
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    @for (stats of dashboardStatsList(); track stats.id) {
+      <app-stats-card
+        [icon]="stats.icon"
+        [title]="stats.title"
+        [value]="stats.value"
+      />
+    }
+  </div>
+
+  <app-data-table
+    [columns]="columns()"
+    [data]="recentOrdersList()"
+    [title]="'Recent Orders'"
+    [showLink]="true"
+    [linkText]="'View All'"
+    [link]="'/admin/orders'"
+    [icon]="'lucideChevronRight'"
+  />
+
+</section>

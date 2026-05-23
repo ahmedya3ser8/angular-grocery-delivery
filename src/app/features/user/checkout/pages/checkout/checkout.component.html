@@ -1,1 +1,164 @@
-<p>checkout works!</p>
+<section class="py-10">
+  <div class="container space-y-6">
+
+    <a routerLink="/products" class="flex items-center gap-1.5 text-[#6B7280] text-sm">
+      <ng-icon name="lucideArrowLeft" />
+      <span> Back </span>
+    </a>
+
+    <h1 class="text-2xl text-[#1B3022] font-semibold"> Checkout </h1>
+
+    <div class="flex items-center gap-2">
+      @for (tab of tabsList(); track $index) {
+        <button
+          (click)="onTabChange(tab.name)"
+          [class]="tab.name === selectedTab() ? 'bg-[#1B3022] text-white' : 'bg-white text-[#6B7280]'"
+          class="py-2 px-4 rounded-xl text-sm font-medium cursor-pointer flex items-center gap-2"
+        >
+          <ng-icon [name]="tab.icon" />
+          {{ tab.name }}
+          @if(tab.isArrow) {
+            <ng-icon name="lucideChevronRight" />
+          }
+        </button>
+      }
+    </div>
+
+    <div class="flex gap-6">
+
+      <div class="flex-1 bg-white rounded-2xl p-6 space-y-6">
+
+        @if (selectedTab() === 'Address') {
+          <div class="flex items-center gap-2">
+            <ng-icon class="text-xl" name="lucideMapPin" />
+            <h3 class="text-lg font-semibold text-primary"> Delivery Address </h3>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            @for (address of addressessList(); track address.id) {
+              <div
+                (click)="onAddressChange(address.label)"
+                [class]="selectedAddress() === address.label ? 'bg-secondary' : 'bg-white'"
+                class="p-6 rounded-2xl space-y-4 shadow-sm flex gap-4 cursor-pointer"
+              >
+
+                <div class="size-10 rounded-xl bg-secondary flex justify-center items-center">
+                  <ng-icon class="text-xl" name="lucideMapPin" />
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-3">
+                    <h3 class="text-sm font-semibold capitalize"> {{ address.label }} </h3>
+                    @if (address.isDefault) {
+                      <div class="bg-secondary text-orange-500 py-1.5 px-3 rounded-full text-xs font-semibold">
+                        Default
+                      </div>
+                    }
+                  </div>
+                  <p class="text-sm text-[#6b7280]"> {{ address.street }}, {{ address.city }} </p>
+                  <p class="text-sm text-[#6b7280]"> {{ address.state }}, {{ address.zipCode }} </p>
+                </div>
+
+              </div>
+            }
+          </div>
+
+          <button class="btn-primary px-6 flex items-center gap-2">
+            Continue to Payment
+            <ng-icon name="lucideChevronRight" />
+          </button>
+        }
+        @else if (selectedTab() === 'Payment') {
+          <div class="flex items-center gap-2">
+            <ng-icon class="text-xl" name="lucideMapPin" />
+            <h3 class="text-lg font-semibold text-primary"> Payment Method </h3>
+          </div>
+
+          <div class="flex flex-col gap-4">
+
+            <label for="online" [class]="selectedPayment === 'card' ? 'bg-secondary border-primary' : 'border-[#e5e7eb] bg-white'" class=" border rounded-2xl p-4 flex items-center gap-4 cursor-pointer">
+              <input type="radio" id="online" [(ngModel)]="selectedPayment" name="payment" value="card" class="size-4 text-primary" />
+              <div class="space-y-0.5">
+                <h3 class="text-sm font-semibold text-primary"> Credit / Debit Card </h3>
+                <p class="text-sm text-[#6b7280]"> Pay securely with your card </p>
+              </div>
+            </label>
+
+            <label for="cash" [class]="selectedPayment === 'cash' ? 'bg-secondary border-primary' : 'border-[#e5e7eb] bg-white'" class="border rounded-2xl p-4 flex items-center gap-4 cursor-pointer">
+              <input type="radio" id="cash" [(ngModel)]="selectedPayment" name="payment" value="cash" class="size-4 text-primary" />
+              <div class="space-y-0.5">
+                <h3 class="text-sm font-semibold text-primary"> Cash on Delivery </h3>
+                <p class="text-sm text-[#6b7280]"> Pay when you receive </p>
+              </div>
+            </label>
+
+          </div>
+
+          <button class="btn-primary px-6 flex items-center gap-2">
+            Review Order
+            <ng-icon name="lucideChevronRight" />
+          </button>
+        }
+        @else {
+          <div class="flex items-center gap-2">
+            <ng-icon class="text-xl" name="lucideCheck" />
+            <h3 class="text-lg font-semibold text-primary"> Review Your Order </h3>
+          </div>
+
+          <div class="bg-secondary p-4 rounded-2xl shadow-sm flex flex-col gap-3">
+
+            <div class="flex items-center gap-2">
+              <ng-icon class="text-xl" name="lucideTruck" />
+              <h3 class="text-sm font-semibold capitalize"> Delivery Address </h3>
+            </div>
+
+            <p class="text-sm text-[#6b7280]">
+              home — sandob, mansoura, mansoura 13255
+            </p>
+
+          </div>
+
+          <div class="flex items-center gap-3">
+            <img src="/images/products/product-02.png" class="size-12 rounded-lg object-cover" alt="product" />
+            <div class="flex justify-between items-center flex-1">
+              <div class="">
+                <h3 class="text-sm font-semibold text-primary"> Barley 1kg </h3>
+                <p class="text-xs text-[#6b7280]"> Qty: 1 </p>
+              </div>
+              <span class="text-sm font-semibold"> $140.00 </span>
+            </div>
+          </div>
+
+          <button class="btn-primary w-full bg-[#f97316] hover:bg-[#f97316]/90 px-6">
+            Place Order — $151.20
+          </button>
+        }
+
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 h-fit w-xs space-y-3">
+        <h3 class="font-semibold text-primary"> Order Summary </h3>
+        <ul class="space-y-3">
+          <li class="flex justify-between items-center">
+            <span class="text-sm text-[#6B7280]"> Subtotal (1 items) </span>
+            <span class="text-sm text-[#1B3022]"> $230.00 </span>
+          </li>
+          <li class="flex justify-between items-center">
+            <span class="text-sm text-[#6B7280]"> Delivery </span>
+            <span class="text-sm text-[#1B3022]"> Free </span>
+          </li>
+          <li class="flex justify-between items-center">
+            <span class="text-sm text-[#6B7280]"> Tax </span>
+            <span class="text-sm text-[#1B3022]"> $18.40 </span>
+          </li>
+          <li class="flex justify-between items-center border-t border-[#E5E7EB] pt-2">
+            <span class="text-sm text-[#1B3022] font-semibold"> Total </span>
+            <span class="text-sm text-[#1B3022] font-semibold"> $248.40 </span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</section>

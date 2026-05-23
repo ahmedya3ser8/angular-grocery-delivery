@@ -23,7 +23,7 @@ export class DealsListComponent implements OnInit {
         review: 12,
         price: 45.0,
         unit: '/100g',
-        oldPrice: 50.0
+        originalPrice: 50.0
       },
       {
         id: 2,
@@ -34,7 +34,7 @@ export class DealsListComponent implements OnInit {
         review: 12,
         price: 420.0,
         unit: '/500g',
-        oldPrice: 450.0
+        originalPrice: 450.0
       },
       {
         id: 3,
@@ -45,7 +45,7 @@ export class DealsListComponent implements OnInit {
         review: 12,
         price: 35.0,
         unit: '/400g',
-        oldPrice: 40.0
+        originalPrice: 40.0
       },
       {
         id: 4,
@@ -56,7 +56,7 @@ export class DealsListComponent implements OnInit {
         review: 12,
         price: 140.0,
         unit: '/1kg',
-        oldPrice: 150.0
+        originalPrice: 150.0
       },
       {
         id: 5,
@@ -67,7 +67,7 @@ export class DealsListComponent implements OnInit {
         review: 12,
         price: 30.0,
         unit: '/70g',
-        oldPrice: 35.0
+        originalPrice: 35.0
       },
       {
         id: 6,
@@ -78,7 +78,7 @@ export class DealsListComponent implements OnInit {
         review: 12,
         price: 50.0,
         unit: '/280g',
-        oldPrice: 55.0
+        originalPrice: 55.0
       },
       {
         id: 7,
@@ -89,7 +89,7 @@ export class DealsListComponent implements OnInit {
         review: 12,
         price: 60.0,
         unit: '/1.5L',
-        oldPrice: 75.0
+        originalPrice: 75.0
       },
       {
         id: 8,
@@ -100,7 +100,7 @@ export class DealsListComponent implements OnInit {
         review: 12,
         price: 44.0,
         unit: '/500g',
-        oldPrice: 50.0
+        originalPrice: 50.0
       },
       {
         id: 9,
@@ -111,7 +111,7 @@ export class DealsListComponent implements OnInit {
         review: 12,
         price: 75.0,
         unit: '/1.5L',
-        oldPrice: 80.0
+        originalPrice: 80.0
       },
       {
         id: 10,
@@ -122,7 +122,7 @@ export class DealsListComponent implements OnInit {
         review: 12,
         price: 110.0,
         unit: '/1kg',
-        oldPrice: 120.0
+        originalPrice: 120.0
       },
     ])
   }

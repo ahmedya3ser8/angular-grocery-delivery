@@ -9,11 +9,12 @@ export const adminRoutes: Routes = [
     children: [
       {
         path: '',
-        loadComponent: () => import('./dashboard/pages/dashboard/dashboard.component').then((c) => c.DashboardComponent)
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
       },
       {
-        path: 'delivery-partners',
-        loadComponent: () => import('.//delivery-partners/pages/delivery-list/delivery-list.component').then((c) => c.DeliveryListComponent)
+        path: 'dashboard',
+        loadComponent: () => import('./dashboard/pages/dashboard/dashboard.component').then((c) => c.DashboardComponent)
       },
       {
         path: 'products',
@@ -26,10 +27,6 @@ export const adminRoutes: Routes = [
       {
         path: 'products/edit/:id',
         loadComponent: () => import('./products/pages/product-form/product-form.component').then((c) => c.ProductFormComponent)
-      },
-      {
-        path: 'products/:id',
-        loadComponent: () => import('./products/pages/product-details/product-details.component').then((c) => c.ProductDetailsComponent)
       },
       {
         path: 'orders',

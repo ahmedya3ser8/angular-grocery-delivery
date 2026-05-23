@@ -1,0 +1,148 @@
+<div class="bg-white border border-[#E5E7EB] rounded-2xl overflow-hidden">
+
+  <div class="w-full overflow-x-auto shadow-sm">
+    <p-table [value]="data()" [tableStyle]="{ 'min-width': '50rem' }">
+
+      <ng-template #caption>
+        <div class="py-5 px-6 flex justify-between items-center">
+          <h2 class="text-lg text-[#18181B] font-semibold"> {{ title() }} </h2>
+          @if (showLink()) {
+            <a [routerLink]="link()" class="text-sm text-[#F97316] font-medium flex items-center gap-1">
+              {{ linkText() }}
+              <ng-icon [name]="icon()" />
+            </a>
+          } @else if (showButton()) {
+            <button class="btn-primary py-2 px-4 flex items-center gap-2">
+              <ng-icon [name]="icon()" />
+              {{ buttonText() }}
+            </button>
+          }
+        </div>
+      </ng-template>
+
+      <ng-template #header>
+        <tr class="text-xs font-bold uppercase">
+          @for (col of columns(); track col) {
+            <th class="p-6! bg-orange-50! text-[#71717B]!">
+              {{ col.header }}
+            </th>
+          }
+        </tr>
+      </ng-template>
+
+      <ng-template #body let-rowData>
+        <tr class="transition hover:bg-gray-50!">
+          @for (col of columns(); track col) {
+            @if (col.isOrderId) {
+              <td class="p-6! text-[#71717B] text-xs">
+                #{{ rowData[col.field] }}
+              </td>
+            }
+            @else if (col.isCustomer) {
+              <td class="p-6!">
+                <div class="flex flex-col">
+                  <span class="text-[#18181B] text-sm font-medium">
+                    {{ rowData.user.name }}
+                  </span>
+                  <span class="text-[#71717B] text-xs">
+                    {{ rowData.user.email }}
+                  </span>
+                </div>
+              </td>
+            }
+            @else if (col.isOrderDetails) {
+              <td class="p-6!">
+                <div class="flex flex-col">
+                  <span class="text-[#18181B] text-sm font-medium">
+                    #{{ rowData.orderId }}
+                  </span>
+                  <span class="text-[#71717B] text-xs">
+                    {{ rowData.date }}
+                  </span>
+                </div>
+              </td>
+            }
+            @else if (col.isItems) {
+              <td class="p-6! text-[#52525C] text-sm">
+                {{ rowData.items }} items
+              </td>
+            }
+            @else if (col.isPrice) {
+              <td class="p-6! text-[#1B3022] font-medium">
+                ${{ rowData[col.field].toFixed(2) }}
+              </td>
+            }
+            @else if (col.isStatus) {
+              <td class="p-6!">
+                @if (rowData[col.field] === 'Delivered') {
+                  <span class="bg-[#DCFCE7] py-1.5 px-2.5 rounded-full text-[#008236] text-xs font-semibold">
+                    {{ rowData[col.field] }}
+                  </span>
+                }
+                @else if (rowData[col.field] === 'Confirmed' || rowData[col.field] === 'Placed') {
+                  <span class="bg-blue-100 py-1.5 px-2.5 rounded-full text-blue-700 text-xs font-semibold">
+                    {{ rowData[col.field] }}
+                  </span>
+                }
+                @else if (rowData[col.field] === 'Packed') {
+                  <span class="bg-purple-100 py-1.5 px-2.5 rounded-full text-purple-700 text-xs font-semibold">
+                    {{ rowData[col.field] }}
+                  </span>
+                }
+              </td>
+            }
+            @else if (col.isDate) {
+              <td class="p-6! text-[#71717B] text-sm">
+                {{ rowData[col.field] | date: 'MM/dd/yyyy' }}
+              </td>
+            }
+            @else if (col.isProduct) {
+              <td class="p-6!">
+                <div class="flex items-center gap-3">
+                  <img [src]="rowData.image" class="size-12 object-cover rounded-lg" [alt]="rowData.title" />
+                  <div class="space-y-0.5">
+                    <h3 class="text-zinc-900 text-sm font-semibold"> {{ rowData.title }} </h3>
+                    <span class="text-zinc-500 text-xs"> {{ rowData.category }} </span>
+                  </div>
+                </div>
+              </td>
+            }
+            @else if (col.isStock) {
+              <td class="p-6!">
+                @if (rowData.stock === 0) {
+                  <span class="bg-red-100 py-1.5 px-2.5 rounded-full text-red-700 text-xs font-semibold">
+                    Out of stock
+                  </span>
+                }
+                @else {
+                  <span class="bg-green-100 py-1.5 px-2.5 rounded-full text-green-700 text-xs font-semibold">
+                    {{ rowData[col.field] }} in stock
+                  </span>
+                }
+              </td>
+            }
+            @else if (col.isAction) {
+              <td class="p-6!">
+                <div class="flex items-center gap-2">
+                  <a [routerLink]="['/admin/products/edit', rowData.id]" class="bg-zinc-100 text-zinc-500 py-1.5 px-3 rounded-lg transition-colors hover:text-blue-500 cursor-pointer">
+                    <ng-icon name="lucideEdit" />
+                  </a>
+                  <button class="bg-zinc-100 text-zinc-500 py-1.5 px-3 rounded-lg transition-colors hover:text-red-500 cursor-pointer">
+                    <ng-icon name="lucideX" />
+                  </button>
+                </div>
+              </td>
+            }
+            @else {
+              <td class="p-6! text-[#71717B] text-sm">
+                {{ rowData[col.field] }}
+              </td>
+            }
+          }
+        </tr>
+      </ng-template>
+
+    </p-table>
+  </div>
+
+</div>

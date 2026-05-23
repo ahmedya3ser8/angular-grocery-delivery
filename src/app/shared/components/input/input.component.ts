@@ -17,7 +17,7 @@ import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angul
 export class InputComponent implements ControlValueAccessor {
   id = input.required<string>();
   label = input.required<string>();
-  placeholder = input.required<string>();
+  placeholder = input<string>();
 
   type = input<string>('text');
   errors = input<{[key: string]: string}>({});

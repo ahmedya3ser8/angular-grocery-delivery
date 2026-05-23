@@ -1,4 +1,11 @@
 <app-header></app-header>
-<main>
-  <router-outlet></router-outlet>
-</main>
+
+<div class="container flex gap-8 py-10">
+
+  <app-sidebar />
+
+  <main class="flex-1 overflow-y-auto">
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

@@ -1,0 +1,41 @@
+<div class="w-65 h-fit bg-white border border-[#E5E7EB] p-4 rounded-2xl space-y-4">
+
+  <div class="flex items-center gap-2 border-b border-[#E5E7EB] pb-4">
+    <ng-icon class="text-xl text-[#0D542B]!" name="lucideShield" />
+    <h2 class="text-lg text-[#1B3022] font-semibold"> Admin Panel </h2>
+  </div>
+
+  <ul class="space-y-1.5">
+    <li>
+      <a routerLink="/admin/dashboard" routerLinkActive="bg-[#1B3022]! text-white!" class="bg-white text-[#6B7280] p-2.5 rounded-md flex items-center gap-3 transition hover:bg-orange-50 hover:text-zinc-900">
+        <ng-icon name="lucideChartColumn" />
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin/products/add" routerLinkActive="bg-[#1B3022]! text-white!" class="bg-white text-[#6B7280] p-2.5 rounded-md flex items-center gap-3 transition hover:bg-orange-50 hover:text-zinc-900">
+        <ng-icon name="lucidePlus" />
+        Add Product
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin/products" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="bg-[#1B3022]! text-white!" class="bg-white text-[#6B7280] p-2.5 rounded-md flex items-center gap-3 transition hover:bg-orange-50 hover:text-zinc-900">
+        <ng-icon name="lucidePackageSearch" />
+        Products
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin/orders" routerLinkActive="bg-[#1B3022]! text-white!" class="bg-white text-[#6B7280] p-2.5 rounded-md flex items-center gap-3 transition hover:bg-orange-50 hover:text-zinc-900">
+        <ng-icon name="lucideShoppingBag" />
+        Orders
+      </a>
+    </li>
+    <li>
+      <a routerLink="/" class="bg-white text-[#6B7280] p-2.5 rounded-md flex items-center gap-3 transition hover:bg-orange-50 hover:text-zinc-900">
+        <ng-icon name="lucideLogOut" />
+        Exit
+      </a>
+    </li>
+  </ul>
+
+</div>

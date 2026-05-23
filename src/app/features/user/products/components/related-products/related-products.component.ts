@@ -24,7 +24,7 @@ export class RelatedProductsComponent implements OnInit {
         review: 12,
         price: 45.0,
         unit: '/100g',
-        oldPrice: 50.0
+        originalPrice: 50.0
       },
       {
         id: 2,
@@ -35,7 +35,7 @@ export class RelatedProductsComponent implements OnInit {
         review: 12,
         price: 420.0,
         unit: '/500g',
-        oldPrice: 450.0
+        originalPrice: 450.0
       },
       {
         id: 3,
@@ -46,7 +46,7 @@ export class RelatedProductsComponent implements OnInit {
         review: 12,
         price: 35.0,
         unit: '/400g',
-        oldPrice: 40.0
+        originalPrice: 40.0
       },
       {
         id: 4,
@@ -57,7 +57,7 @@ export class RelatedProductsComponent implements OnInit {
         review: 12,
         price: 140.0,
         unit: '/1kg',
-        oldPrice: 150.0
+        originalPrice: 150.0
       },
       {
         id: 5,
@@ -68,7 +68,7 @@ export class RelatedProductsComponent implements OnInit {
         review: 12,
         price: 30.0,
         unit: '/70g',
-        oldPrice: 35.0
+        originalPrice: 35.0
       }
     ]);
   }

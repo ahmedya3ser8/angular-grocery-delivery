@@ -6,7 +6,7 @@
     [type]="type()"
     [id]="id()"
     [value]="value"
-    [placeholder]="placeholder()"
+    [placeholder]="placeholder() || ''"
     (input)="onChange($any($event.target).value)"
     (blur)="onTouched()"
     class="input"

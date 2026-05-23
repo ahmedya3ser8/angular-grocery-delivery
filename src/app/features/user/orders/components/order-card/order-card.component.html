@@ -31,7 +31,7 @@
 
   <div class="flex justify-between items-center">
     <span class="text-sm text-[#6B7280]"> {{ order().items }} items </span>
-    <span class="text-sm font-semibold text-[#1B3022]"> ${{ order().price.toFixed(2) }} </span>
+    <span class="text-sm font-semibold text-[#1B3022]"> ${{ order().price?.toFixed(2) }} </span>
   </div>
 
 </a>
