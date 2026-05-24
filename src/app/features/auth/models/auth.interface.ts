@@ -1,9 +1,3 @@
-export interface AuthResponse {
-  success: boolean;
-  message: string;
-  data: User
-}
-
 export interface User {
   _id: string,
   name: string,

@@ -1,22 +1,41 @@
 import { isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, inject, OnInit, PLATFORM_ID, signal, ViewChild, WritableSignal } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  ElementRef,
+  inject,
+  OnInit,
+  PLATFORM_ID,
+  signal,
+  ViewChild,
+  WritableSignal
+} from '@angular/core';
+
 import { SwiperContainer } from 'swiper/element';
 import { SwiperOptions } from 'swiper/types';
+import { SkeletonModule } from 'primeng/skeleton';
 
-import { Category } from '../../models/category';
+import { Category } from '../../models/category.interface';
+import { CategoryService } from '../../services/category.service';
+import { ToastService } from '../../../../../core/services/toast.service';
 
 @Component({
   selector: 'app-categories',
-  imports: [],
+  imports: [SkeletonModule],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CategoriesComponent implements OnInit, AfterViewInit {
   @ViewChild('swiperRef') swiperRef!: ElementRef<SwiperContainer>;
+
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly categoryService = inject(CategoryService);
+  private readonly toastService = inject(ToastService);
 
   categoriesList: WritableSignal<Category[]> = signal([]);
+  isLoading: WritableSignal<boolean> = signal(false);
 
   swiperConfig: SwiperOptions = {
     slidesPerView: 1,
@@ -34,18 +53,7 @@ export class CategoriesComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.categoriesList.set([
-      { id: 1, image: '/images/categories/category-01.png', title: 'Fruits & Vegetables' },
-      { id: 2, image: '/images/categories/category-02.png', title: 'Personal Care' },
-      { id: 3, image: '/images/categories/category-03.png', title: 'Pantry Staples' },
-      { id: 4, image: '/images/categories/category-04.png', title: 'Bakery' },
-      { id: 5, image: '/images/categories/category-05.png', title: 'Beverages' },
-      { id: 6, image: '/images/categories/category-06.png', title: 'Meat & Seafood' },
-      { id: 7, image: '/images/categories/category-07.png', title: 'Snacks' },
-      { id: 8, image: '/images/categories/category-08.png', title: 'Frozen Foods' },
-      { id: 9, image: '/images/categories/category-09.png', title: 'Baby Care' },
-      { id: 10, image: '/images/categories/category-10.png', title: 'Dairy & Eggs' },
-    ])
+    this.getCategories();
   }
 
   ngAfterViewInit(): void {
@@ -58,5 +66,22 @@ export class CategoriesComponent implements OnInit, AfterViewInit {
     const swiperEl = this.swiperRef.nativeElement;
     Object.assign(swiperEl, this.swiperConfig);
     swiperEl.initialize();
+  }
+
+  getCategories(): void {
+    this.isLoading.set(true);
+    this.categoryService.getCategories().subscribe({
+      next: (res) => {
+        if (res.success) {
+          this.categoriesList.set(res.data);
+        }
+        this.isLoading.set(false);
+      },
+      error: (err) => {
+        console.log(err);
+        console.log(this.toastService.showToast('error', 'Error', err.error.message));
+        this.isLoading.set(false);
+      }
+    })
   }
 }

@@ -3,7 +3,8 @@ import { computed, inject, Injectable, signal, WritableSignal } from '@angular/c
 import { Observable, tap } from 'rxjs';
 
 import { environment } from '../../../../environments/environment.development';
-import { AuthResponse, SigninForm, SignupForm, User } from '../models/auth.interface';
+import { ApiResponse } from '../../../shared/models/api-response.interface';
+import { SigninForm, SignupForm, User } from '../models/auth.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +14,8 @@ export class AuthService {
 
   user: WritableSignal<User | null> = signal(null);
 
-  signup(formData: SignupForm): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${environment.BASE_URL}auth/signup`, formData, {
+  signup(formData: SignupForm): Observable<ApiResponse<User>> {
+    return this.http.post<ApiResponse<User>>(`${environment.BASE_URL}auth/signup`, formData, {
       withCredentials: true
     }).pipe(
       tap((res) => {
@@ -23,8 +24,8 @@ export class AuthService {
     )
   }
 
-  signin(formData: SigninForm): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${environment.BASE_URL}auth/signin`, formData, {
+  signin(formData: SigninForm): Observable<ApiResponse<User>> {
+    return this.http.post<ApiResponse<User>>(`${environment.BASE_URL}auth/signin`, formData, {
       withCredentials: true
     }).pipe(
       tap((res) => {
@@ -33,8 +34,8 @@ export class AuthService {
     )
   }
 
-  logout(): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${environment.BASE_URL}auth/logout`, {}, {
+  logout(): Observable<ApiResponse<User>> {
+    return this.http.post<ApiResponse<User>>(`${environment.BASE_URL}auth/logout`, {}, {
       withCredentials: true
     }).pipe(
       tap(() => {
@@ -43,12 +44,11 @@ export class AuthService {
     )
   }
 
-  getMe(): Observable<AuthResponse> {
-    return this.http.get<AuthResponse>(`${environment.BASE_URL}auth/me`, {
+  getMe(): Observable<ApiResponse<User>> {
+    return this.http.get<ApiResponse<User>>(`${environment.BASE_URL}auth/me`, {
       withCredentials: true
     }).pipe(
       tap((res) => {
-        console.log(res);
         this.user.set(res.data);
       })
     )

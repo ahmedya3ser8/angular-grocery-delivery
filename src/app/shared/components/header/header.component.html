@@ -48,8 +48,8 @@
             <div class="absolute z-100 w-55 right-0 mt-4 bg-white border border-[#e5e7eb] rounded-lg shadow-md">
               <!-- top -->
               <div class="border-b border-[#e5e7eb] py-2 px-4">
-                <p class="text-sm font-medium"> ahmed yasser </p>
-                <p class="text-xs"> ay@gmail.com </p>
+                <p class="text-sm font-medium"> {{ user()?.name }} </p>
+                <p class="text-xs"> {{ user()?.email }} </p>
               </div>
               <!-- content -->
               <ul>
@@ -73,7 +73,7 @@
                 </li>
               </ul>
               <!-- footer -->
-              <button class="w-full border-t border-[#e5e7eb] text-[#ea580c] py-2 px-4 flex items-center gap-3 transition-colors hover:bg-[#FFF7ED]">
+              <button (click)="logout()" class="w-full border-t border-[#e5e7eb] text-[#ea580c] py-2 px-4 flex items-center gap-3 transition-colors hover:bg-[#FFF7ED]">
                 <ng-icon name="lucideLogOut" />
                 Logout
               </button>
